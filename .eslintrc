@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:vue/recommended",
+    "@vue/airbnb"
+  ],
+  "rules": {
+    "eol-last": 0,
+    "comma-dangle": [2,"never"],
+    "indent": ["error", 4],
+    "semi": 2,
+    "generator-star-spacing": 2,
+    "vue/html-indent": ["error", 4],
+    "linebreak-style": [2,"windows"]
+  }
+}
