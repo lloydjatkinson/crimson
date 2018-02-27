@@ -1,9 +1,11 @@
 {
   "root": true,
   "extends": [
-    "plugin:vue/recommended",
-    "@vue/airbnb"
+    "plugin:vue/recommended"
   ],
+  "parserOptions": {
+      "ecmaVersion": 8
+  },
   "rules": {
     "eol-last": 0,
     "comma-dangle": [2,"never"],
@@ -11,6 +13,13 @@
     "semi": 2,
     "generator-star-spacing": 2,
     "vue/html-indent": ["error", 4],
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "no-debugger": "off",
+    "no-console": "error",
+    "space-before-function-paren": ["error", {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+    }]
   }
 }
