@@ -12,11 +12,12 @@ const actions = {
     async updateLatestArticles ({ commit, state }) {
         commit(SET_API_REQUEST_PENDING);
 
-        const response = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'reuters');
+        const response = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'ars-technica');
 
         switch (response.apiResponse) {
         case apiResponse.SUCCESS:
             commit(SET_API_REQUEST_SUCCESS);
+            commit(UPDATE_LATEST_ARTICLES, response.articles);
             break;
 
         case apiResponse.FAILURE:

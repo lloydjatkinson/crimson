@@ -20,6 +20,13 @@
         "anonymous": "always",
         "named": "always",
         "asyncArrow": "always"
-    }]
+    }],
+    "vue/max-attributes-per-line": [5, {
+        "singleline": 5,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": false
+        }
+      }]
   }
 }

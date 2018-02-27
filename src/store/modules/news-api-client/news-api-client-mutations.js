@@ -8,15 +8,15 @@ import {
 
 const mutations = {
     [SET_API_REQUEST_PENDING] (state) {
-
+        state.requestPending = true;
     },
 
     [SET_API_REQUEST_FAILURE] (state) {
-
+        state.requestPending = false;
     },
 
     [SET_API_REQUEST_SUCCESS] (state) {
-
+        state.requestPending = false;
     },
 
     [UPDATE_LATEST_ARTICLES] (state, articles) {
