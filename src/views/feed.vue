@@ -17,7 +17,7 @@
                                 <!-- <h3 class="headline mb-0">{{ item.title }}</h3>
                                 <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div> -->
                                 <div>
-                                    {{ item.title }}
+                                    <a class="body-1 white--text" :href="item.url">{{ item.title }}</a>
                                 </div>
                             </div>
                         </v-card-title>
