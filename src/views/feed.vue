@@ -43,7 +43,7 @@ export default {
 
     computed: {
         newsArticles () {
-            return this.$store.state.newsApiStore.articles.slice(0, 10);
+            return this.$store.state.newsApiStore.articles;
         }
     },
 
