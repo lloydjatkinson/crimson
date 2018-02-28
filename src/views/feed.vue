@@ -8,7 +8,7 @@
     <v-app>
         <v-container grid-list-md text-xs-center>
             <v-layout row wrap>
-                <v-flex xs3 v-for="(item, index) in newsArticles" :key="index">
+                <v-flex xs2 v-for="(item, index) in newsArticles" :key="index">
                     <v-card dark color="secondary">
                         <v-card-media :src="item.urlToImage" height="200px" />
                         <!-- </v-card-media> -->
