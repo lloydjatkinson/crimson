@@ -1,35 +1,21 @@
 <template>
-    <!-- <div class="home">
-        <button @click="refresh">Test</button>
-        {{ newsArticles }}
-        <img src="../assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
-    </div> -->
-    <v-app>
-        <v-container grid-list-md text-xs-center>
-            <v-layout row wrap>
-                <v-flex xs2 v-for="(item, index) in newsArticles" :key="index">
-                    <v-card dark color="secondary">
-                        <v-card-media :src="item.urlToImage" height="200px" />
-                        <!-- </v-card-media> -->
-                        <v-card-title primary-title>
-                            <div>
-                                <!-- <h3 class="headline mb-0">{{ item.title }}</h3>
-                                <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div> -->
-                                <div>
-                                    <a class="body-1 white--text" :href="item.url">{{ item.title }}</a>
-                                </div>
-                            </div>
-                        </v-card-title>
-                        <v-card-actions>
-                            <!-- <v-btn flat color="orange">Read</v-btn> -->
-                            <!-- <v-btn flat color="orange">Explore</v-btn> -->
-                        </v-card-actions>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </v-app>
+    <div class="container-fluid">
+        <div v-masonry transition-duration="0.3s" item-selector=".item">
+            <div
+                v-masonry-tile
+                v-for="(item, index) in newsArticles" :key="index"
+                class="item">
+                <div class="card" style="width: 20rem;">
+                    <img :src="item.urlToImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><a :href="item.url">{{ item.title }}</a></h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text"><small class="text-muted">Published at {{ item.publishedAt }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -58,3 +44,13 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+    .item {
+        // width: 250px;
+        // height: 150px;
+        float: left;
+        margin: 5px;
+        background: #CCC;
+}
+</style>
