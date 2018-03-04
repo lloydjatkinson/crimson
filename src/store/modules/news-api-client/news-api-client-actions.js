@@ -16,8 +16,9 @@ const actions = {
         const response = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'ars-technica');
         const response2 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'reuters');
         const response3 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'national-geographic');
+        const response4 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'bbc-news');
 
-        const shuffled = shuffle([...response.articles, ...response2.articles, ...response3.articles]);
+        const shuffled = shuffle([...response.articles, ...response2.articles, ...response3.articles, ...response4.articles]);
 
         switch (response.apiResponse) {
         case apiResponse.SUCCESS:

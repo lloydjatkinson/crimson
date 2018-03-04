@@ -26,7 +26,7 @@ export const sort = Object.freeze({
 //     return newsResponse;
 // };
 
-export const getAsync = async (apiKey, source, sortBy = sort.LATEST) => {
+export const getAsync = async (apiKey, source, sortBy = sort.POPULAR) => {
     const newsResponse = { };
     try {
         const response = await axios.get('https://newsapi.org/v1/articles', {
