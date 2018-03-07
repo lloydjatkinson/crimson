@@ -53,6 +53,5 @@ export default {
         // height: 150px;
         float: left;
         margin: 5px;
-        background: #CCC;
 }
 </style>
