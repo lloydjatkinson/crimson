@@ -8,7 +8,7 @@
                 <div class="card" style="width: 20rem;">
                     <img :src="item.urlToImage" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title"><a :href="item.url" @click="trackArticleOpenEvent(item)">{{ item.title }}</a></h5>
+                        <h5 class="card-title"><a :href="item.url" target="_blank" @click="trackArticleOpenEvent(item)">{{ item.title }}</a></h5>
                         <p class="card-text">{{ item.description }}</p>
                         <p v-if="item.publishedAt" class="card-text">
                             <small class="text-muted">Published at {{ item.publishedAt }}</small>
