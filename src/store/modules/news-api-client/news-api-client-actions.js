@@ -19,7 +19,7 @@ const actions = {
         const response2 = await getAsync(key, 'reuters');
         const response3 = await getAsync(key, 'national-geographic');
         const response4 = await getAsync(key, 'bbc-news');
-        const response5 = await getAsync(key, 'financial-times');
+        const response5 = await getAsync(key, 'time');
 
         const shuffled = shuffle([
             ...response.articles,
