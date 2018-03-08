@@ -12,13 +12,21 @@ const actions = {
     // TODO: Don't hardcode source, allow multiple, etc.
     async updateLatestArticles ({ commit, state }) {
         commit(SET_API_REQUEST_PENDING);
+        
+        // Temporary.
+        const key = '6017b19103d04b0cbfcd48b14114c809';
+        const response = await getAsync(key, 'ars-technica');
+        const response2 = await getAsync(key, 'reuters');
+        const response3 = await getAsync(key, 'national-geographic');
+        const response4 = await getAsync(key, 'bbc-news');
+        const response5 = await getAsync(key, 'forbes');
 
-        const response = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'ars-technica');
-        const response2 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'reuters');
-        const response3 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'national-geographic');
-        const response4 = await getAsync('6017b19103d04b0cbfcd48b14114c809', 'bbc-news');
-
-        const shuffled = shuffle([...response.articles, ...response2.articles, ...response3.articles, ...response4.articles]);
+        const shuffled = shuffle([
+            ...response.articles,
+            ...response2.articles,
+            ...response3.articles,
+            ...response4.articles,
+            ...response5.articles]);
 
         switch (response.apiResponse) {
         case apiResponse.SUCCESS:
