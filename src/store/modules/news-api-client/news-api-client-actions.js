@@ -1,25 +1,32 @@
 import { shuffle } from 'lodash';
+import { NEWS_API_KEY } from '../../../services/apis/news-api-key';
 import apiResponse from '../../../services/apis/api-response';
-import { getAsync } from '../../../services/apis/news-api-client';
+import { getArticles, getSources } from '../../../services/apis/news-api-client';
 import {
-    SET_API_REQUEST_PENDING,
-    SET_API_REQUEST_SUCCESS,
-    SET_API_REQUEST_FAILURE,
-    UPDATE_LATEST_ARTICLES
+    SET_ARTICLE_API_REQUEST_PENDING,
+    SET_ARTICLE_API_REQUEST_SUCCESS,
+    SET_ARTICLE_API_REQUEST_FAILURE,
+
+    SET_SOURCES_API_REQUEST_PENDING,
+    SET_SOURCES_API_REQUEST_SUCCESS,
+    SET_SOURCES_API_REQUEST_FAILURE,
+
+    UPDATE_LATEST_ARTICLES,
+    UPDATE_NEWS_SOURCES
 } from './news-api-client-mutation-types';
 
 const actions = {
     // TODO: Don't hardcode source, allow multiple, etc.
     async updateLatestArticles ({ commit, state }) {
-        commit(SET_API_REQUEST_PENDING);
+        commit(SET_ARTICLE_API_REQUEST_PENDING);
         
         // Temporary.
         const key = '6017b19103d04b0cbfcd48b14114c809';
-        const response = await getAsync(key, 'ars-technica');
-        const response2 = await getAsync(key, 'reuters');
-        const response3 = await getAsync(key, 'national-geographic');
-        const response4 = await getAsync(key, 'bbc-news');
-        const response5 = await getAsync(key, 'time');
+        const response = await getArticles(key, 'ars-technica');
+        const response2 = await getArticles(key, 'reuters');
+        const response3 = await getArticles(key, 'national-geographic');
+        const response4 = await getArticles(key, 'bbc-news');
+        const response5 = await getArticles(key, 'time');
 
         const shuffled = shuffle([
             ...response.articles,
@@ -30,15 +37,37 @@ const actions = {
 
         switch (response.apiResponse) {
         case apiResponse.SUCCESS:
-            commit(SET_API_REQUEST_SUCCESS);
+            commit(SET_ARTICLE_API_REQUEST_SUCCESS);
             commit(UPDATE_LATEST_ARTICLES, shuffled);
             break;
 
         case apiResponse.FAILURE:
-            commit(SET_API_REQUEST_FAILURE);
+            commit(SET_ARTICLE_API_REQUEST_FAILURE);
             break;
         
         default:
+            throw new TypeError('Unknown API response type.');
+            break;
+        }
+    },
+
+    async updateNewsSources ({ commit, state }) {
+        commit(SET_ARTICLE_API_REQUEST_PENDING);
+
+        const response = await getSources(NEWS_API_KEY);
+
+        switch (response.apiResponse) {
+        case apiResponse.SUCCESS:
+            commit(SET_SOURCES_API_REQUEST_SUCCESS);
+            commit(UPDATE_NEWS_SOURCES, response.sources);
+            break;
+
+        case apiResponse.FAILURE:
+            commit(SET_SOURCES_API_REQUEST_FAILURE);
+            break;
+
+        default:
+            throw new TypeError('Unknown API response type.');
             break;
         }
     }

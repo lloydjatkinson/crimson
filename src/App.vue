@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div v-cloak id="app">
         <div id="nav">
             <!-- <router-link to="/">Home</router-link> | -->
             <!-- <router-link to="/about">About</router-link> -->
@@ -29,4 +29,8 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 } */
+
+[v-cloak] {
+    display: none;
+}
 </style>

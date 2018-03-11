@@ -1,6 +1,8 @@
 const state = {
-    requestPending: true,
-    articles: []
+    articleApiPending: true,
+    articles: [],
+    sourcesApiPending: false,
+    sources: []
 };
 
 export default state;
