@@ -1,10 +1,25 @@
 <template>
     <div>
-        <p>{{ sourceCount }} sources</p>
+        <b-progress
+            v-if="sourcesApiPending"
+            :value="100"
+            :animated="true"
+            variant="info"
+            class="mb-3" />
         <b-list-group>
             <b-list-group-item
-                v-for="(item, index) in sources" :key="index">
-                {{ item.name }}
+                v-for="(item, index) in sources"
+                :key="index"
+                class="flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        {{ item.name }}
+                    </h5>
+                    <small>{{ item.country }}-{{ item.language }}</small>
+                </div>
+                <p class="mb-1">
+                    {{ item.description }}
+                </p>
             </b-list-group-item>
         </b-list-group>
     </div>
@@ -17,6 +32,7 @@ export default {
     name: 'SourceList',
     computed: {
         ...mapGetters([
+            'sourcesApiPending',
             'sourceCount',
             'sources'
         ])

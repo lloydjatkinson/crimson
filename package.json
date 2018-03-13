@@ -16,6 +16,7 @@
     "moment": "^2.21.0",
     "moment-timezone": "^0.5.14",
     "register-service-worker": "^1.0.0",
+    "svg-country-flags": "^1.2.1",
     "vue": "^2.5.13",
     "vue-analytics": "^5.9.1",
     "vue-masonry": "^0.10.16",

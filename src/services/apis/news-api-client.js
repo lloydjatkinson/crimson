@@ -40,6 +40,6 @@ export const getSources = async (apiKey) => {
     } catch (error) {
         sourcesResponse.apiResponse = apiResponse.FAILURE;
     }
-    debugger;
+
     return sourcesResponse;
 };

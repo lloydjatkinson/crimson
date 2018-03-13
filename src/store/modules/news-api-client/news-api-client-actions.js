@@ -52,7 +52,7 @@ const actions = {
     },
 
     async updateNewsSources ({ commit, state }) {
-        commit(SET_ARTICLE_API_REQUEST_PENDING);
+        commit(SET_SOURCES_API_REQUEST_PENDING);
 
         const response = await getSources(NEWS_API_KEY);
 

@@ -1,16 +1,25 @@
 <template>
-    <b-container>
-        <b-row align-v="center">
+    <b-container fluid>
+        <b-row align="center">
+            <b-col />
             <b-col>
-                <source-list />
+                <p>{{ sourceCount }} sources</p>
             </b-col>
+            <b-col />
         </b-row>
+        <b-container class="scroll-panel">
+            <b-row align-v="center">       
+                <b-col>
+                    <source-list />
+                </b-col>
+            </b-row>
+        </b-container>
     </b-container>
 </template>
 
 <script>
 // @ts-check
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import SourceList from '../components/source-list.vue';
 
 export default {
@@ -19,9 +28,16 @@ export default {
         SourceList
     },
 
+    computed: {
+        ...mapGetters([
+            'sourceCount'
+        ])
+    },
+
     created () {
         this.updateNewsSources();
     },
+
 
     methods: {
         ...mapActions([
@@ -32,5 +48,8 @@ export default {
 </script>
 
 <style>
-
+    .scroll-panel {
+        overflow-y: auto;
+        max-height: 50rem;
+    }
 </style>
