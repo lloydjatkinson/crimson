@@ -21,12 +21,11 @@ const actions = {
         commit(SET_ARTICLE_API_REQUEST_PENDING);
         
         // Temporary.
-        const key = '6017b19103d04b0cbfcd48b14114c809';
-        const response = await getArticles(key, 'ars-technica');
-        const response2 = await getArticles(key, 'reuters');
-        const response3 = await getArticles(key, 'national-geographic');
-        const response4 = await getArticles(key, 'bbc-news');
-        const response5 = await getArticles(key, 'time');
+        const response = await getArticles(NEWS_API_KEY, 'ars-technica');
+        const response2 = await getArticles(NEWS_API_KEY, 'reuters');
+        const response3 = await getArticles(NEWS_API_KEY, 'national-geographic');
+        const response4 = await getArticles(NEWS_API_KEY, 'bbc-news');
+        const response5 = await getArticles(NEWS_API_KEY, 'time');
 
         const shuffled = shuffle([
             ...response.articles,
