@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
 import { VueMasonryPlugin } from 'vue-masonry';
