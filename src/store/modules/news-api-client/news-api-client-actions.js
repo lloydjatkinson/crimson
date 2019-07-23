@@ -26,13 +26,22 @@ const actions = {
         const response3 = await getArticles(NEWS_API_KEY, 'national-geographic');
         const response4 = await getArticles(NEWS_API_KEY, 'bbc-news');
         const response5 = await getArticles(NEWS_API_KEY, 'time');
+        const response6 = await getArticles(NEWS_API_KEY, 'the-verge');
+        const response7 = await getArticles(NEWS_API_KEY, 'spiegel-online');
+        const response8 = await getArticles(NEWS_API_KEY, 'the-economist');
+        const response9 = await getArticles(NEWS_API_KEY, 'techcrunch');
 
         const shuffled = shuffle([
             ...response.articles,
             ...response2.articles,
             ...response3.articles,
             ...response4.articles,
-            ...response5.articles]);
+            ...response5.articles,
+            ...response6.articles,
+            ...response7.articles,
+            ...response8.articles,
+            ...response9.articles,
+        ]);
 
         switch (response.apiResponse) {
         case apiResponse.SUCCESS:
