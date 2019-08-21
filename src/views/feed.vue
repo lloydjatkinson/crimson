@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div v-masonry transition-duration="0.3s" item-selector=".item">
+        <div v-masonry transition-duration="0.1s" item-selector=".item">
             <div
                 v-masonry-tile
                 v-for="(item, index) in newsArticles" :key="index"
