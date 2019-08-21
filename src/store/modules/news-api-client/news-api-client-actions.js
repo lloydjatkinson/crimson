@@ -26,7 +26,7 @@ const actions = {
         const response3 = await getArticles(NEWS_API_KEY, 'national-geographic');
         const response4 = await getArticles(NEWS_API_KEY, 'bbc-news');
         const response5 = await getArticles(NEWS_API_KEY, 'time');
-        const response6 = await getArticles(NEWS_API_KEY, 'polygon');
+        const response6 = await getArticles(NEWS_API_KEY, 'the-next-web');
         const response7 = await getArticles(NEWS_API_KEY, 'the-verge');
         const response8 = await getArticles(NEWS_API_KEY, 'techcrunch');
 
