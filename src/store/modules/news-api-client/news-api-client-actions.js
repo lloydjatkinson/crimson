@@ -45,6 +45,7 @@ const actions = {
         case apiResponse.SUCCESS:
             commit(SET_ARTICLE_API_REQUEST_SUCCESS);
             commit(UPDATE_LATEST_ARTICLES, shuffled);
+            console.log(shuffled);
             break;
 
         case apiResponse.FAILURE:
